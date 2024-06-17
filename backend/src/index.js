@@ -110,7 +110,7 @@ server.post('/api/v1/carta/excluir', async (req, res, next) => {
 server.del('/api/v1/database/reset', async (req, res, next) => {
     try {
       await pool.query('DROP TABLE IF EXISTS cartas');
-      await pool.query('CREATE TABLE cartas (id SERIAL PRIMARY KEY, nome VARCHAR(255) NOT NULL, ataque VARCHAR(255) NOT NULL, defesa VARCHAR(255) NOT NULL, tipo VARCHAR(255) NOT NULL, descricao VARCHAR(255) NOT NULL');
+      await pool.query('CREATE TABLE cartas (id SERIAL PRIMARY KEY, nome VARCHAR(255) NOT NULL, ataque VARCHAR(255) NOT NULL, defesa VARCHAR(255) NOT NULL, tipo VARCHAR(255) NOT NULL, descricao VARCHAR(255) NOT NULL)');
       res.send(200, { message: 'Banco de dados resetado com sucesso' });
       console.log('Banco de dados resetado com sucesso');
     } catch (error) {
